@@ -20,7 +20,7 @@ echo -en '\n\n' >> $ff
 echo "id=SweetHome3D#2DSymbols"  >> $ff
 echo "name=2DSymbols"  >> $ff
 echo "description= Symbols Catalog for use in 2D plan"  >> $ff
-echo "version=1.5.7"  >> $ff
+echo "version=1.5.6"  >> $ff
 echo "license=GPL-3.0"  >> $ff
 echo "provider=niltrip (based on dorin)"  >> $ff
 echo -en '\n\n' >> $ff
