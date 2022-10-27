@@ -35,11 +35,15 @@ do
 cp plan/$nn catalog/
 cn=catalog/$nn
 pn=plan/$nn
- echo $nn
+  echo $nn
+
  { width=$[`convert "$pn" -format '%w' info:` / 20]
    depth=$[`convert "$pn" -format '%h' info:` / 20]
    convert -trim "$cn" "$cn"
    convert "$cn" -resize 256x256 -background transparent -gravity center -extent 256x256 "$cn"
+   # make plan icons red
+   convert "$pn" -fuzz 50% -fill firebrick3 -opaque black "$pn"
+
  } || {
   echo "Cannot find convert, a member of the ImageMagick suite. The images are not cropped and resized to 256x256."
   echo -en '\n\n' >> $ff
