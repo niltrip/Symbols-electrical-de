@@ -20,7 +20,7 @@ echo -en '\n\n' >> $ff
 echo "id=SweetHome3D#2DSymbols"  >> $ff
 echo "name=2DSymbols"  >> $ff
 echo "description= Symbols Catalog for use in 2D plan"  >> $ff
-echo "version=1.5.7"  >> $ff
+echo "version=1.5.9"  >> $ff
 echo "license=GPL-3.0"  >> $ff
 echo "provider=niltrip (based on dorin)"  >> $ff
 echo -en '\n\n' >> $ff
@@ -36,13 +36,16 @@ cp plan/$nn catalog/
 cn=catalog/$nn
 pn=plan/$nn
   echo $nn
+   # make plan icons red
+   #convert "$pn" -fuzz 50% -fill black -opaque black "$pn"
+   #convert "$pn" -fuzz 50% -fill firebrick3 -opaque black "$pn"
 
  { width=$[`convert "$pn" -format '%w' info:` / 20]
    depth=$[`convert "$pn" -format '%h' info:` / 20]
    convert -trim "$cn" "$cn"
    convert "$cn" -resize 256x256 -background transparent -gravity center -extent 256x256 "$cn"
    # make plan icons red
-   convert "$pn" -fuzz 50% -fill firebrick3 -opaque black "$pn"
+   #convert "$pn" -fuzz 50% -fill firebrick3 -opaque black "$pn"
 
  } || {
   echo "Cannot find convert, a member of the ImageMagick suite. The images are not cropped and resized to 256x256."
